@@ -38,9 +38,15 @@ createApp({
         }
     },
     methods: {
+
+        // cambio immagini
+
         changeImage (index){
             this.activeImg = index
         },
+
+        // creo funzione per far funzionare le frecce
+
         next(){
             this.activeImg++;
             if(this.activeImg > this.imagesArray.length -1){
@@ -53,16 +59,18 @@ createApp({
                 this.activeImg = this.imagesArray.length -1;
             }
         },
+
+        // aggiungo i bottoni con il setInterval
+
         start(){
             this.autoplay = setInterval(() => {
                 this.next()
-            },3000);
+            },3000, {once: "true"});
         },
         stop(){
             clearInterval(this.autoplay)
             this.autoplay = null;
         },
-
     },
 }).mount('#app')
 

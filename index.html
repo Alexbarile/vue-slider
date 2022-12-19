@@ -18,8 +18,10 @@
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item">
-                    <img :src="imagesArray[activeImg].image" alt="Spiderman" />
+                <!-- immagini slides con mouseover e mouseleave-->
+
+                <div class="item" @mouseover="stop" @mouseleave="start">
+                    <img :src="imagesArray[activeImg].image" :alt="imagesArray.title"/>
                     <div class="text">
                         <h3>{{imagesArray[activeImg].title}}</h3>
                         <p>
@@ -28,24 +30,24 @@
                     </div>
                 </div>
 
+                <!-- thumbnails -->
+
                 <div class="thumbs">
                     <div class="prev" @click="prev"></div>
                     <div class="next" @click="next"></div>
                     <div class="thumb" v-for="(element, index) in imagesArray" :class="(activeImg === index) ? 'active' : '' ">
                         <img :src="element.image" alt="" @click="changeImage(index)" />
-                    </div>
-                    
-                  
+                    </div>    
                 </div>
+
+                <!-- aggiunti bottoni start e stop -->
+
                 <div class="buttons">
                     <button class="circle-button" id="play" @click="start"><i class="fa-solid fa-play"></i></button>
                     <button class="circle-button" id="pause" @click="stop"><i class="fa-solid fa-pause"></i></button>
                 </div>
-
-
             </div>
         </div>
-
     </div>
 
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>

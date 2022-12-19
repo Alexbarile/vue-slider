@@ -6,7 +6,7 @@ const{
 createApp({
     data(){
         return{
-            autoplay: 0,
+            activeImg: 0,
             imagesArray: [
                 {
                     image: 'img/01.webp',
@@ -35,7 +35,12 @@ createApp({
                         },
             ]
         }
-    }
+    },
+    methods: {
+        changeImage (index){
+            this.activeImg = index
+        }
+    },
 }).mount('#app')
 
 

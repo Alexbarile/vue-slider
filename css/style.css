@@ -1,166 +1,105 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.container{
+.container {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.slider{
-    width: 50vw;
-    height: 50vh;
-    position:relative;
-}
-
-.thumbnails{
-    display: flex;
-    float: right;
-    flex-direction: column;
-    height: 100%;
-    transform: translate(50%, -121%);
-    background-color: black;
-}
-
-.thumb{
-    width: 250px;
-    height: calc(100% / 5);
-    opacity: 0.5;
-    cursor: pointer;
-}
-
-.thumb.active{
-    opacity: 1;
-    border: 1px solid white;
-}
-
-.thumb img{
-    width: 100%;
-    object-fit: cover;
-}
-
-
-.item{
-    display: none;
+.item {
+    float: left;
+    width: 700px;
+    height: 300px;
     position: relative;
 }
 
-h3{
-    color: white;
-    font-size: 25px;
-    position: absolute;
-    bottom: 50px;
-    right: 150px;
-}
-
-p{
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    bottom: 25px;
-    right: 150px;
-}
-
-.item-slider, .item, img{
-    height: 100%
-}
-
-.item img{
+.item img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-.arrow{
+.item .text {
     position: absolute;
-    width: 40px;
-    background-color: rgba(174, 174, 174, 0.509);
-    border-radius: 50px;
-    font-weight: 800; 
-    left: 50%;
-    font-size: 30px;
-    transform: translateX(-50%);
-    text-align: center;
-    cursor: pointer;
-}
-
-.next{
-    top: 5px; 
-}
-
-.prev{
-    bottom: 5px;
-}
-
-.prev:hover, .next:hover{
-    background-color: rgba(174, 174, 174, 1);   
-}
-
-.item.active{
-    display: block;
-}
-
-.circles-container{
-    display: flex;
-    justify-content: center;
-}
-
-.circle{
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(174, 174, 174, 0.509);
-    margin: 10px;
-    cursor: pointer;
-}
-
-
-.circle.active, .circle:hover{
-    background-color: rgba(174, 174, 174, 1); 
-}
-
-
-.buttons{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.circle-button{
-    border-radius: 50%;
-    padding: 10px 15px;
-    font-size: 30px;
-    border: none;
-    margin: 10px;
-    text-align: center;
-    transition: 0.3s;
+    right: 20px;
+    bottom: 20px;
+    text-align: right;
     color: white;
 }
 
-.circle-button#prev{
-    background-color: red;
+.thumbs {
+    float: left;
+    height: 300px;
+    background: #000;
+    position: relative;
 }
 
-.circle-button#play{
-    background-color: green;
+.thumb {
+    height: calc((300px) / 5);
+    opacity: 0.5;
 }
 
-.circle-button#pause{
-    background-color: orange;
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.circle-button#prev:hover{
-    background-color: darkred;
+.thumb.active {
+    border: 2px solid #ccc;
+    opacity: 1;
 }
 
-.circle-button#play:hover{
-    background-color: darkgreen;
+.prev, .next {
+    width: 20px;
+    height: 20px;
+    margin: 10px 0;
+    border-radius: 50%;
+    background: #ccc;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    cursor: pointer;
+    z-index: 999;
 }
 
-.circle-button#pause:hover{
-    background-color: darkorange;
+.next {
+    bottom: 0;
+}
+
+/*
+EXTRA: in questo esempio gli accordion vengono creati
+usando 2 bordi di un quadratino ruotato di 45 gradi
+In una versione base si possono usare delle icone
+oppure i caratteri ∧ (&and;) e ∨ (&or;)
+ */
+.prev::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    display: block;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%) rotate(-45deg);
+}
+
+.next::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    display: block;
+    position: absolute;
+    bottom: 35%;
+    left: 50%;
+    transform: translate(-50%) rotate(135deg);
 }

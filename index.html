@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Slider</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://kit.fontawesome.com/8527d0e473.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -31,11 +33,15 @@
                     <div class="next" @click="next"></div>
                     <div class="thumb" v-for="(element, index) in imagesArray" :class="(activeImg === index) ? 'active' : '' ">
                         <img :src="element.image" alt="" @click="changeImage(index)" />
-
                     </div>
                     
                   
                 </div>
+                <div class="buttons">
+                    <button class="circle-button" id="play" @click="start"><i class="fa-solid fa-play"></i></button>
+                    <button class="circle-button" id="pause" @click="stop"><i class="fa-solid fa-pause"></i></button>
+                </div>
+
 
             </div>
         </div>

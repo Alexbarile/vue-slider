@@ -6,6 +6,7 @@ const{
 createApp({
     data(){
         return{
+            autoplay: "",
             activeImg: 0,
             imagesArray: [
                 {
@@ -42,17 +43,25 @@ createApp({
         },
         next(){
             this.activeImg++;
-            if(this.activeImg > this.imagesArray.image.length -1){
+            if(this.activeImg > this.imagesArray.length -1){
                 this.activeImg = 0;
             }
         },
         prev(){
             this.activeImg--;
             if(this.activeImg < 0){
-                this.activeImg = this.imagesArray.image.length -1;
+                this.activeImg = this.imagesArray.length -1;
             }
-
-        }
+        },
+        start(){
+            this.autoplay = setInterval(() => {
+                this.next()
+            },3000);
+        },
+        stop(){
+            clearInterval(this.autoplay)
+            this.autoplay = null;
+        },
 
     },
 }).mount('#app')

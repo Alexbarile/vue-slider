@@ -107,3 +107,44 @@ oppure i caratteri ∧ (&and;) e ∨ (&or;)
     left: 50%;
     transform: translate(-50%) rotate(135deg);
 }
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.circle-button{
+    border-radius: 50%;
+    padding: 10px 15px;
+    font-size: 30px;
+    border: none;
+    margin: 10px;
+    text-align: center;
+    transition: 0.3s;
+    color: white;
+}
+
+.circle-button#prev{
+    background-color: red;
+}
+
+.circle-button#play{
+    background-color: green;
+}
+
+.circle-button#pause{
+    background-color: orange;
+}
+
+.circle-button#prev:hover{
+    background-color: darkred;
+}
+
+.circle-button#play:hover{
+    background-color: darkgreen;
+}
+
+.circle-button#pause:hover{
+    background-color: darkorange;
+}

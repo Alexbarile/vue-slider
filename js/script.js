@@ -39,7 +39,8 @@ createApp({
     },
     methods: {
 
-        // cambio immagini
+        // cambio immagini 
+        // BONUS 1
 
         changeImage (index){
             this.activeImg = index
@@ -61,6 +62,7 @@ createApp({
         },
 
         // aggiungo i bottoni con il setInterval
+        // BONUS 2
 
         start(){
             this.autoplay = setInterval(() => {

@@ -39,7 +39,21 @@ createApp({
     methods: {
         changeImage (index){
             this.activeImg = index
+        },
+        next(){
+            this.activeImg++;
+            if(this.activeImg > this.imagesArray.image.length -1){
+                this.activeImg = 0;
+            }
+        },
+        prev(){
+            this.activeImg--;
+            if(this.activeImg < 0){
+                this.activeImg = this.imagesArray.image.length -1;
+            }
+
         }
+
     },
 }).mount('#app')
 
